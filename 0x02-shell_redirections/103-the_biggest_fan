@@ -1,0 +1,2 @@
+#!/bin/bash
+tail -n +2 users | sort | uniq -c | tr -s ' ' | cut -b 2- | sort | tac | cut -d' ' -f 2- | cut -f 1 | uniq
