@@ -1,2 +1,3 @@
 #!/bin/bash
-echo ${#$(echo $PATH | tr -s : | tr : ' ')[@]}
+echo $PATH | tr -s ':' | tr ':' '\n' | wc -l
+
