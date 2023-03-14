@@ -1,2 +1,2 @@
 #!/bin/bash
-paste - - | cut -d$' ' -f1
+cat 102-odd
