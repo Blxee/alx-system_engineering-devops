@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# prints the user id and dir from /etc/passwd
+while read -r line
+do
+  echo "$line" | cut -d: -f 1,3,6
+done < /etc/passwd
