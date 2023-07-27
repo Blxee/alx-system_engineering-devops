@@ -4,13 +4,13 @@ for i in {1..100}
 do
   if ((i % 15 == 0))
   then
-    echo "fizzbuzz"
+    echo "FizzBuzz"
   elif ((i % 3 == 0))
   then
-    echo "buzz"
+    echo "Buzz"
   elif ((i % 5 == 0))
   then
-    echo "fizz"
+    echo "Fizz"
   else
     echo "$i"
   fi
