@@ -3,7 +3,7 @@
 declare -i hour
 while [[ $hour -lt 12 ]]
 do
-  echo "Hour: $hour"
+  echo "Hour: $((hour))"
   declare -i minute=1
   while [[ $minute -lt 60 ]]
   do
