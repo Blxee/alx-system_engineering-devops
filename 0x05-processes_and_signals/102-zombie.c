@@ -24,14 +24,14 @@ int infinite_while(void)
 int main(void)
 {
 	int i;
-	pid_t pid;
+	pid_t pid = 1;
 
 	for (i = 0; i < 5; i++)
 	{
 		pid = fork();
-		if (pid > 0)
+		if (pid > 0) /* if main process */
 			printf("Zombie process created, PID: %d\n", pid);
-		else
+		else /* if child, break */
 			break;
 	}
 
