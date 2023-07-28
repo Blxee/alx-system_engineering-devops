@@ -30,10 +30,8 @@ int main(void)
 	{
 		pid = fork();
 		if (pid > 0)
-		{
 			printf("Zombie process created, PID: %d\n", pid);
-		}
-		else if (pid == 0 || pid == -1)
+		else
 			break;
 	}
 
