@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# displays a phrase indefinitely
+
+PID_FILE="/var/run/myscript.pid"
+cat $$ > $PID_FILE
+
+handle_int() {
+  echo "Y U no love me?!"
+  exit
+}
+
+handle_term() {
+  echo "I hate the kill command"
+  rm $PID_FILE
+  exit
+}
+
+handle_quit() {
+  rm $PID_FILE
+  exit
+}
+
+trap handle_int INT
+trap handle_term TERM
+trap handle_quit QUIT
+
+while true
+do
+  echo "To infinity and beyond"
+  sleep 2
+done
