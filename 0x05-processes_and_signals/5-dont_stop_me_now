@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # stops another script
 kill -TERM -"$(pgrep -f 4-to_infinity_and_beyond)"
+echo "Terminated"
