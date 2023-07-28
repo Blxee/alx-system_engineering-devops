@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <sys/types.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 /**
@@ -24,17 +24,18 @@ int infinite_while(void)
 int main(void)
 {
 	int i;
-	pid_t pid = 1;
+	pid_t pid;
 
 	for (i = 0; i < 5; i++)
 	{
 		pid = fork();
-		if (pid > 0) /* if main process */
+		if (pid > 0) /* if main process, continue */
 			printf("Zombie process created, PID: %d\n", pid);
 		else /* if child, break */
 			break;
 	}
 
-	infinite_while();
+	if (pid > 0)
+		infinite_while();
 	return (0);
 }
