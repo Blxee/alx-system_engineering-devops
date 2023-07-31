@@ -5,8 +5,8 @@ FILE="/var/run/my_process.pid"
 
 case $1 in
   "start")
-    ./manage_my_process
-    echo $$ > $FILE
+    ./manage_my_process &
+    echo $! > $FILE
     echo "manage_my_process started"
   ;;
   "stop")
@@ -16,8 +16,8 @@ case $1 in
   "restart")
     pkill -f manage_my_process
     rm $FILE
-    ./manage_my_process
-    echo $$ > $FILE
+    ./manage_my_process &
+    echo $! > $FILE
     echo "manage_my_process restarted"
   ;;
   *)
