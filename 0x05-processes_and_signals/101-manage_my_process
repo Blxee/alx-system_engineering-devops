@@ -10,6 +10,7 @@ case $1 in
     echo "manage_my_process started"
   ;;
   "stop")
+    pkill -f manage_my_process
     rm $FILE
     echo "manage_my_process stopped"
   ;;
