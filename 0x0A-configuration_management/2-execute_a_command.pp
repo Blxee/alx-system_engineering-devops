@@ -1,6 +1,5 @@
 # 2. Execute a command
 
-exec { 'pkill killmenow':
-  onlyif      => 'pgrep killmenow',
+exec { 'pkill -f killmenow':
   refreshonly => true,
 }
