@@ -1,5 +1,6 @@
 # 2. Execute a command
 
-exec { 'pkill -f killmenow':
+exec { 'kill him now':
+  command     => 'pkill -f killmenow',
   refreshonly => true,
 }
