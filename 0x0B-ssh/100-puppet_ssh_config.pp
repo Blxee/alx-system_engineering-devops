@@ -1,8 +1,8 @@
 # 4. Client configuration file (w/ Puppet)
 
 file { 'Create ssh_config':
-  path   => '/etc/ssh/ssh_config',
   ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
 }
 
 file_line { 'Declare identity file':
