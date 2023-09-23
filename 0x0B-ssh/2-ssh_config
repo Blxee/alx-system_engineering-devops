@@ -1,3 +1,4 @@
 Host alx-server
   HostName 98.98.98.98
   User ubuntu
+  IdentifyFile ~/.ssh/school
