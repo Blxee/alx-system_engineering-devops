@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 0. Give me a page!
+echo "Hello Holberton" > /usr/share/apache2/default-site/htdocs/index.html
+systemctl start apache2
