@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # 0. Give me a page!
+apt install apache2 -y
 echo "Hello Holberton" > /var/www/html/index.html
 systemctl start apache2
