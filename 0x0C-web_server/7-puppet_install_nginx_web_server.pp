@@ -8,19 +8,15 @@ service { 'nginx':
   enable => true,
 }
 
-file { '/etc/nginx/sites-available/default':
-  notify => Service['nginx'],
-}
-
 file { '/var/www/html/index.html':
   ensure  => 'present',
   content => 'Hello World!',
 }
 
 file_line { '/etc/nginx/sites-available/default':
-  line     => '\tlocation / {',
-  match    => '\tlocation / {',
-  replace  => '\tlocation / {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-  require  => Service['nginx'],
-  notify   => Service['nginx'],
+  line    => '\tlocation / {',
+  match   => '\tlocation / {',
+  replace => '\tlocation / {\n\t\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  require => Service['nginx'],
+  notify  => Service['nginx'],
 }
