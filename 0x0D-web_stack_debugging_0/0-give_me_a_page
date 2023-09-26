@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # 0. Give me a page!
+id=$(docker run -p 8080:80 -d -it holbertonschool/265-0)
+# apt install apache2 -y
+docker exec -it "$id" /bin/bash
 echo "Hello Holberton" > /var/www/html/index.html
+exit
+# systemctl start apache2
