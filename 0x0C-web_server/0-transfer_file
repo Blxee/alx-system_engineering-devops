@@ -12,7 +12,7 @@ PATH_TO_SSH_KEY=$4
 
 if [[ $PATH_TO_SSH_KEY ]]
 then
-  scp -o StrictHostKeyChecking=no -i $PATH_TO_SSH_KEY $PATH_TO_FILE $USERNAME@$IP
+  scp -o StrictHostKeyChecking=no -i $PATH_TO_SSH_KEY $PATH_TO_FILE $USERNAME@$IP:~
 else
-  scp -o StrictHostKeyChecking=no $PATH_TO_FILE $USERNAME@$IP
+  scp -o StrictHostKeyChecking=no $PATH_TO_FILE $USERNAME@$IP:~
 fi
