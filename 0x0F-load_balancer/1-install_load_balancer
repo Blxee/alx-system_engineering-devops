@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # 1. Install your load balancer
+apt-get update -y
 apt-get install haproxy -y
 file="/etc/haproxy/haproxy.cfg"
 echo -e "frontend my_frontend" >> "$file"
