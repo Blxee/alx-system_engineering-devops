@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # 0. Double the number of webservers
-sudo sed -i 's/server {/server {\n\tadd_header X-Served-By $hostname;\n' /etc/nginx/sites-available/default
-sudo systemctl reload nginx
+sed -i 's/server {/server {\n\tadd_header X-Served-By $hostname;\n/' /etc/nginx/sites-available/default
+systemctl reload nginx
