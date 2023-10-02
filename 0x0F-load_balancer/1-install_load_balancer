@@ -2,11 +2,11 @@
 # 1. Install your load balancer
 apt-get install haproxy -y
 file="/etc/haproxy/haproxy.cfg"
-echo "frontend my_frontend" >> "$file"
-echo "\tbind *:80" >> "$file"
-echo "\tdefault_backend my_backend" >> "$file"
-echo "backend my_backend" >> "$file"
-echo "\tbalance roundrobin" >> "$file"
-echo "\tserver $(hostname) 100.25.152.12:80 check" >> "$file"
-echo "\tserver $(hostname) 54.167.85.211:80 check" >> "$file"
+echo -e "frontend my_frontend" >> "$file"
+echo -e "\tbind *:80" >> "$file"
+echo -e "\tdefault_backend my_backend" >> "$file"
+echo -e "backend my_backend" >> "$file"
+echo -e "\tbalance roundrobin" >> "$file"
+echo -e "\tserver $(hostname) 100.25.152.12:80 check" >> "$file"
+echo -e "\tserver $(hostname) 54.167.85.211:80 check" >> "$file"
 systemctl start haproxy
