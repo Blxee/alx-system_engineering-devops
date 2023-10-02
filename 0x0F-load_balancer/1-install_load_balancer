@@ -8,7 +8,7 @@ sudo echo -e "\tbind *:80" >> "$file"
 sudo echo -e "\tdefault_backend my_backend" >> "$file"
 sudo echo -e "backend my_backend" >> "$file"
 sudo echo -e "\tbalance roundrobin" >> "$file"
-sudo echo -e "\tserver web-01 100.25.152.12:80 check" >> "$file"
-sudo echo -e "\tserver web-02 54.167.85.211:80 check" >> "$file"
+sudo echo -e "\tserver 380698-web-01 100.25.152.12:80 check" >> "$file"
+sudo echo -e "\tserver 380698-web-02 54.167.85.211:80 check" >> "$file"
 sudo echo "ENABLED=1" >> /etc/default/haproxy
 sudo systemctl restart haproxy
