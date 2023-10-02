@@ -2,8 +2,17 @@
 # 0. Double the number of webservers
 apt-get update -y
 apt-get install nginx -y
-sed -i '/^\slocation.*/iadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
-sed -i '/^\slocation.*/arewrite redirect_me https://google.com permanent;' /etc/nginx/sites-available/default
+data=\
+"server_name _;
+	rewrite ^\/redirect_me https:\/\/google.com permanent;
+	error_page 404 \/custom_404.html;
+	location = \/custom_404.html {
+		root \/usr\/share\/nginx\/html;
+		internal;
+	}
+"
+sed -i "s/server_name _;/$data/" /etc/nginx/sites-available/default
+sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \$hostname;/" /etc/nginx/nginx.conf
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 systemctl restart nginx
