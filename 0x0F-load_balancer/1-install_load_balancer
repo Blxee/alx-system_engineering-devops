@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# 1. Install your load balancer
+sudo su
+apt-get install haproxy -y
+file="/etc/haproxy/haproxy.cfg"
+echo "frontend my_frontend" >> "$file"
+echo "\tbind *:80" >> "$file"
+echo "\tdefault_backend my_backend" >> "$file"
+echo "backend my_backend" >> "$file"
+echo "\tbalance roundrobin" >> "$file"
+echo "\tserver web-01 100.25.152.12:80 check" >> "$file"
+echo "\tserver web-02 54.167.85.211:80 check" >> "$file"
