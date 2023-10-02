@@ -2,5 +2,5 @@
 # 0. Double the number of webservers
 sudo apt-get update -y
 sudo apt-get install nginx -y
-sudo sed -i 's/server {/server {\n\tadd_header X-Served-By $hostname;\n/' /etc/nginx/sites-available/default
+sudo sed -i 's/^\slocations.*/i\tadd_header X-Served-By $hostname;/' /etc/nginx/sites-available/default
 sudo systemctl restart nginx
