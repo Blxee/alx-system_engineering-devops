@@ -2,7 +2,7 @@
 # 0. Double the number of webservers
 apt-get update -y
 apt-get install nginx -y
-sed -i 's/^\slocations.*/i\tadd_header X-Served-By $hostname;/' /etc/nginx/sites-available/default
+sed -i '/^\slocation.*/i \tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 # rewrite /redirect_me https:\/\/github.com\/Tolulope05 permanent;
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
