@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 1. Install your load balancer
-sudo apt-get update -y
-sudo apt-get install -y haproxy
+apt-get -y update
+apt-get -y install haproxy
 echo "
    listen load_balancer
    bind *:80
