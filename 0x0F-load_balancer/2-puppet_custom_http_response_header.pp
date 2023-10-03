@@ -19,5 +19,5 @@ file_line { 'add header':
 
 service { 'nginx':
   ensure  => 'running',
-  require => Package['nginx'],
+  require => File_line['add header'],
 }
