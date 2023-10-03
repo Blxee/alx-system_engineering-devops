@@ -13,4 +13,4 @@ echo "
    server 380698-web-02 54.167.85.211:80 check
 " >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" >> /etc/default/haproxy
-systemctl restart haproxy
+service haproxy restart
