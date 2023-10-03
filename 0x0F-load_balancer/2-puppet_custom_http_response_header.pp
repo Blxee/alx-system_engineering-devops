@@ -23,9 +23,3 @@ exec { 'restart':
   provider => shell,
   command  => 'sudo service nginx restart',
 }
-
-service { 'nginx':
-  ensure  => 'running',
-  enable  => true,
-  require => Package['nginx'],
-}
