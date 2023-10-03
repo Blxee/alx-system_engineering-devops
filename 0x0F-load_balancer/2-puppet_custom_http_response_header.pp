@@ -1,7 +1,8 @@
 # 2. Add a custom HTTP header with Puppet
 
 exec { 'update':
-  command => 'sudo apt-get -y update',
+  provider => shell,
+  command  => 'sudo apt-get -y update',
 }
 
 package { 'nginx':
@@ -15,6 +16,12 @@ file_line { 'add header':
   after   => 'server_name .*;',
   match   => '^.*server_name .*;$',
   require => Package['nginx'],
+  before  => Exec['restart'],
+}
+
+exec { 'restart':
+  provider => shell,
+  command  => 'sudo service nginx restart',
 }
 
 service { 'nginx':
