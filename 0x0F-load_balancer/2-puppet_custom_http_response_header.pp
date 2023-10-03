@@ -10,6 +10,10 @@ package { 'nginx':
   require => Exec['update'],
 }
 
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
+}
+
 file_line { 'add header':
   path    => '/etc/nginx/sites-available/default',
   line    => 'add_header X-Served-By \$hostname;',
