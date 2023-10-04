@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# 0. Nginx likes port 80
+# 1. Make it sweet and short
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-pkill nginx
-service nginx start
+service nginx restart
