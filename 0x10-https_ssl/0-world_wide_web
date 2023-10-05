@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# 0. World wide web
+DOMAIN="$1"
+if [[ "$2" ]]
+then
+  SUB_DOMAIN=("$2")
+else
+  SUB_DOMAIN=("www" "lb-01" "web-01" "web-02")
+fi
+
+for sub in "${SUB_DOMAIN[@]}"
+do
+  echo $sub
+  dig "$DOMAIN" |\
+    grep -A1 "ANSWER SECTION" |\
+    tail -1 |\
+    awk "{print \"The subdomain\", \"$sub\", \"is a\", \$4, \"record and points to\", \$5}"
+done
