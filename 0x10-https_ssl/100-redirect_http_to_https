@@ -1,0 +1,20 @@
+defaults
+    mode http
+    timeout client 15s
+    timeout connect 10s
+    timeout server 15s
+    timeout http-request 10s
+
+frontend my_frontend
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.blxee.tech.pem
+    mode http
+    redirect scheme https code 301 if !{ ssl_fc }
+    default_backend my_backend
+
+backend my_backend
+    mode http
+    balance roundrobin
+    server 380698-web-01 100.25.152.12:80 check
+    server 380698-web-02 54.167.85.211:80 check
+
