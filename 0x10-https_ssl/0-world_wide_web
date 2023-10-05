@@ -10,7 +10,6 @@ fi
 
 for sub in "${SUB_DOMAIN[@]}"
 do
-  echo $sub
   dig "$sub.$DOMAIN" |\
     grep -A1 "ANSWER SECTION" |\
     tail -1 |\
