@@ -11,7 +11,7 @@ fi
 for sub in "${SUB_DOMAIN[@]}"
 do
   echo $sub
-  dig "$DOMAIN" |\
+  dig "$sub.$DOMAIN" |\
     grep -A1 "ANSWER SECTION" |\
     tail -1 |\
     awk "{print \"The subdomain\", \"$sub\", \"is a\", \$4, \"record and points to\", \$5}"
