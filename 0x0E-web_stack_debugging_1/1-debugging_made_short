@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # 1. Make it sweet and short
 ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
 pgrep nginx | tail -1 | xargs kill
-nginx
