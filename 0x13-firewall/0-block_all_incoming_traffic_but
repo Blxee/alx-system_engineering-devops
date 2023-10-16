@@ -1,6 +1,4 @@
 #!/bin/bash
-apt update -y
-apt install ufw -y
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22,80,443/tcp
