@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 1. Run Nginx as Nginx
-sed -i '/.*user .*;/d' /etc/nginx/nginx.conf
-new_config=$(cat <(echo "user nginx;") /etc/nginx/nginx.conf)
-echo "$new_config" > /etc/nginx/nginx.conf
-service nginx reload
+sed -i 's/.*user www-data;/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/80/8080/' /etc/nginx/sites-available/default
+pkill apache2
+sudo -u nginx service nginx reload
