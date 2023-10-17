@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 1. Run Nginx as Nginx
+cat <(echo "user nginx;") /etc/nginx/nginx.conf > /etc/nginx/nginx.conf
+service nginx restart
