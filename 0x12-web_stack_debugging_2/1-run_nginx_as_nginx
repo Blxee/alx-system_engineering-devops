@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # 1. Run Nginx as Nginx
+sed -i '/.*user .*;/d' /etc/nginx/nginx.conf
 new_config=$(cat <(echo "user nginx;") /etc/nginx/nginx.conf)
 echo "$new_config" > /etc/nginx/nginx.conf
 service nginx reload
