@@ -10,7 +10,7 @@ if __name__ == '__main__':
     url = 'https://jsonplaceholder.typicode.com/users/' + emp_id
 
     with request.urlopen(url) as response:
-        emp_name = json.load(response).get('name')
+        emp_name = json.load(response).get('username')
 
     with request.urlopen(url + '/todos/') as response:
         todos = json.load(response)
