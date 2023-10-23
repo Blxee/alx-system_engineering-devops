@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 ''' 0. Gather data from an API '''
+import json
 from urllib import request
 from sys import argv
-import json
 
 emp_id = argv[1]
 url = 'https://jsonplaceholder.typicode.com/users/' + emp_id
