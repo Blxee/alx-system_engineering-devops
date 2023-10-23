@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' 0. Gather data from an API '''
+''' 2. Export to JSON '''
 import json
 from sys import argv
 from urllib import request
