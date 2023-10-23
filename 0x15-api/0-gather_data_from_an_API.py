@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' 0. Gather data from an API '''
-from sys import argv
 import json
+from sys import argv
 from urllib import request
 
 if __name__ == '__main__':
