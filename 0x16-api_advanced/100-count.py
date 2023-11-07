@@ -21,7 +21,9 @@ def count_words(subreddit, word_list=[], word_count={}, after=None):
         for post in posts:
             title = post['data']['title'].lower()
             for word in word_list:
-                word_count[word] += title.count(word.lower())
+                for t_word in title.split():
+                    if word.lower() == t_word:
+                        word_count[word] += 1
         if not data['after']:
             for word in sorted(word_list,
                                key=lambda k: word_count[k],
