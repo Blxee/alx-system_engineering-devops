@@ -3,8 +3,11 @@
 import requests
 
 
-def count_words(subreddit, hot_list=[], after=None):
+def count_words(subreddit, word_list=[], word_count={}, after=None):
     """ returns list of all hottest posts of a subreddit or None """
+    if not word_count:
+        for word in word_list:
+            word_count[word] = 0
     limit = 25
     response = requests.get(
         f'https://www.reddit.com/r/{subreddit}/hot.json?',
@@ -16,10 +19,13 @@ def count_words(subreddit, hot_list=[], after=None):
         data = response.json()['data']
         posts = data['children']
         for post in posts:
-            hot_list.append(post['data']['title'])
-        if len(posts) < limit:
-            return hot_list
-        count_words(subreddit, after=data['after'])
-    elif not hot_list:
-        return None
-    return hot_list
+            title = post['data']['title'].lower()
+            for word in word_list:
+                word_count[word] += title.count(word.lower())
+        if not data['after']:
+            for word in sorted(word_list,
+                               key=lambda k: word_count[k],
+                               reverse=True):
+                print(f'{word}: {word_count[word]}')
+            return
+        count_words(subreddit, word_list=word_list, after=data['after'])
