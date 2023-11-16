@@ -5,7 +5,7 @@ exec { 'unlimit':
   notify  => Service['nginx'],
 }
 
-exec { 'nginx':
+service { 'nginx':
   ensure  => 'running',
   require => Exec['unlimit'],
 }
