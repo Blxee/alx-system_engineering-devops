@@ -2,9 +2,10 @@
 
 exec { 'unlimit':
   command => '/bin/sed "s/15/4096/" /etc/default/nginx',
+  notify  => Service['nginx'],
 }
 
 exec { 'nginx':
-  ensure    => 'running',
-  subscribe => Exec['ulimit'],
+  ensure  => 'running',
+  require => Exec['unlimit'],
 }
